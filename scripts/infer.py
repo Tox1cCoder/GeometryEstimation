@@ -193,7 +193,7 @@ def main(
                     f,
                 )
 
-        # Export mesh & visulization
+        # Export mesh & visualization
         if save_glb_ or save_ply_ or show:
             faces, vertices, vertex_colors, vertex_uvs = utils3d.numpy.image_mesh(
                 points,
