@@ -571,7 +571,7 @@ def main(
                 str(save_path / "mask.png"), (panorama_mask * 255).astype(np.uint8)
             )
 
-        # Export mesh & visulization
+        # Export mesh & visualization
         if save_glb_ or save_ply_ or show:
             normals, normals_mask = utils3d.numpy.points_to_normals(
                 points, panorama_mask
