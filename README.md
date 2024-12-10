@@ -1,6 +1,6 @@
 # GeometryEstimation
 
-### Prerequisit
+### Prerequisite
 
 - Clone this repository. 
 
