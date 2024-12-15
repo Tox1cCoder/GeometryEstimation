@@ -69,7 +69,7 @@ def run(image: np.ndarray, remove_edge: bool = True, max_size: int = 800):
     output_glb_path = Path(tempdir, f'{run_id}.glb')
     output_glb_path.parent.mkdir(exist_ok=True)
     trimesh.Trimesh(
-        vertices=vertices * [-1, 1, -1],    # No idea why Gradio 3D Viewer' default camera is flipped
+        vertices=vertices * [-1, 1, -1], 
         faces=faces, 
         visual = trimesh.visual.texture.TextureVisuals(
             uv=vertex_uvs, 
@@ -100,7 +100,7 @@ def run(image: np.ndarray, remove_edge: bool = True, max_size: int = 800):
 
 
 DESCRIPTION = """
-## Turn a 2D image into a 3D point map with [MoGe](https://wangrc.site/MoGePage/)
+## Turn a 2D image into a 3D point map
 
 NOTE: 
 * The maximum size is set to 800px for efficiency purpose. Oversized images will be downsampled.
