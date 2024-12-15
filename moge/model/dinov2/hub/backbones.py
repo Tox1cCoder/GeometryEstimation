@@ -1,3 +1,8 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+#
+# This source code is licensed under the Apache License, Version 2.0
+# found in the LICENSE file in the root directory of this source tree.
+
 from enum import Enum
 from typing import Union
 
@@ -11,19 +16,19 @@ class Weights(Enum):
 
 
 def _make_dinov2_model(
-        *,
-        arch_name: str = "vit_large",
-        img_size: int = 518,
-        patch_size: int = 14,
-        init_values: float = 1.0,
-        ffn_layer: str = "mlp",
-        block_chunks: int = 0,
-        num_register_tokens: int = 0,
-        interpolate_antialias: bool = False,
-        interpolate_offset: float = 0.1,
-        pretrained: bool = True,
-        weights: Union[Weights, str] = Weights.LVD142M,
-        **kwargs,
+    *,
+    arch_name: str = "vit_large",
+    img_size: int = 518,
+    patch_size: int = 14,
+    init_values: float = 1.0,
+    ffn_layer: str = "mlp",
+    block_chunks: int = 0,
+    num_register_tokens: int = 0,
+    interpolate_antialias: bool = False,
+    interpolate_offset: float = 0.1,
+    pretrained: bool = True,
+    weights: Union[Weights, str] = Weights.LVD142M,
+    **kwargs,
 ):
     from ..models import vision_transformer as vits
 

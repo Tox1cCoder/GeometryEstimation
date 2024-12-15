@@ -1,5 +1,11 @@
-import logging
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+#
+# This source code is licensed under the Apache License, Version 2.0
+# found in the LICENSE file in the root directory of this source tree.
+
 from collections import defaultdict
+import logging
+
 
 logger = logging.getLogger("dinov2")
 
@@ -17,27 +23,27 @@ def get_vit_lr_decay_rate(name, lr_decay_rate=1.0, num_layers=12, force_is_backb
     layer_id = num_layers + 1
     if name.startswith("backbone") or force_is_backbone:
         if (
-                ".pos_embed" in name
-                or ".patch_embed" in name
-                or ".mask_token" in name
-                or ".cls_token" in name
-                or ".register_tokens" in name
+            ".pos_embed" in name
+            or ".patch_embed" in name
+            or ".mask_token" in name
+            or ".cls_token" in name
+            or ".register_tokens" in name
         ):
             layer_id = 0
         elif force_is_backbone and (
-                "pos_embed" in name
-                or "patch_embed" in name
-                or "mask_token" in name
-                or "cls_token" in name
-                or "register_tokens" in name
+            "pos_embed" in name
+            or "patch_embed" in name
+            or "mask_token" in name
+            or "cls_token" in name
+            or "register_tokens" in name
         ):
             layer_id = 0
         elif ".blocks." in name and ".residual." not in name:
-            layer_id = int(name[name.find(".blocks."):].split(".")[2]) + 1
+            layer_id = int(name[name.find(".blocks.") :].split(".")[2]) + 1
         elif chunked_blocks and "blocks." in name and "residual." not in name:
-            layer_id = int(name[name.find("blocks."):].split(".")[2]) + 1
+            layer_id = int(name[name.find("blocks.") :].split(".")[2]) + 1
         elif "blocks." in name and "residual." not in name:
-            layer_id = int(name[name.find("blocks."):].split(".")[1]) + 1
+            layer_id = int(name[name.find("blocks.") :].split(".")[1]) + 1
 
     return lr_decay_rate ** (num_layers + 1 - layer_id)
 

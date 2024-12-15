@@ -1,9 +1,17 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+#
+# This source code is licensed under the Apache License, Version 2.0
+# found in the LICENSE file in the root directory of this source tree.
+
+
 from typing import Dict, Union
 
 import numpy as np
 import torch
 
+
 TypeSpec = Union[str, np.dtype, torch.dtype]
+
 
 _NUMPY_TO_TORCH_DTYPE: Dict[np.dtype, torch.dtype] = {
     np.dtype("bool"): torch.bool,
