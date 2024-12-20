@@ -5,7 +5,7 @@
 - **Accurately** estimate 3D geometry in point map or mesh format from a **single** image.
 - Support various image resolutions and aspect ratios, ranging from **2:1** to **1:2**.
 - Capable of producing an extensive depth range, with distances from nearest to farthest reaching up to **1000x**.
-- **Fast** inference, typically **0.2s** for a single image.
+- **Fast** inference speed.
 
 ### Prerequisite
 
